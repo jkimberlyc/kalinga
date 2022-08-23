@@ -1,0 +1,116 @@
+.banner {
+    background-image: url("http://127.0.0.1:8000/images/doctor-find.png"),
+        url("http://127.0.0.1:8000/images/banner-bg.png");
+    background-size: auto 120%, 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top right 28%;
+    padding-top: 110px;
+    /* position: relative; */
+    /* background-attachment: fixed; */
+    height: 80vh;
+    /* text-shadow: 1px 2px #fff; */
+}
+
+#searchbar {
+    margin-top: -80px;
+    background-color: #6c11df;
+}
+
+@media screen and (max-width: 667px) {
+    #home {
+        background-image: url("http://127.0.0.1:8000/images/banner-bg.png");
+    }
+    .banner {
+        color: white;
+    }
+
+    #search {
+        margin-top: -60px;
+    }
+}
+
+.baybayin {
+    font-family: "BaybayinDaluyongRegular";
+    font-weight: normal;
+    font-style: normal;
+    /* letter-spacing: 10px; */
+    text-align: center;
+    background: -webkit-linear-gradient(rgb(97, 64, 216), rgb(223, 94, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ls-0 {
+    letter-spacing: 0;
+}
+
+#about {
+    /* background-image: url("http://127.0.0.1:8000/images/about-kalinga.png");
+    background-size: cover;
+    background-position: center left -50%;
+    background-repeat: no-repeat; */
+    /* height: 800px; */
+}
+
+.accordion-button {
+    font-size: medium !important;
+}
+
+.accordion {
+    /* border: 1px solid #8f2a8f; */
+    border-radius: 8px !important;
+}
+
+.accordion-button,
+.accordion-button .collapsed {
+    color: #8f2a8f !important;
+    background-color: transparent !important;
+    border: 0px !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+}
+
+.accordion-header {
+    /* border-bottom: 1px solid #8f2a8f; */
+}
+
+/* :not(:nth-last-child(2)) {
+    border-bottom: 0;
+} */
+
+.accordion-button:not(.collapsed) {
+    background: rgb(108, 17, 223);
+    background: -moz-linear-gradient(
+        90deg,
+        rgba(108, 17, 223, 1) 13%,
+        rgba(146, 44, 136, 0.5326505602240896) 100%
+    );
+    background: -webkit-linear-gradient(
+        90deg,
+        rgba(108, 17, 223, 1) 13%,
+        rgba(146, 44, 136, 0.5326505602240896) 100%
+    );
+    background: linear-gradient(
+        90deg,
+        rgba(108, 17, 223, 1) 13%,
+        rgba(146, 44, 136, 0.5326505602240896) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c11df",endColorstr="#922c88",GradientType=1);
+    color: white !important;
+}
+
+button .accordion-button::after {
+    color: white !important;
+}
+
+.accordion-body {
+    background-color: rgb(245, 244, 244) !important;
+}
+
+.active {
+    font-weight: bolder !important;
+    text-decoration: underline !important;
+    text-decoration-color: #d640d6 !important;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 3px !important;
+}

@@ -1,0 +1,147 @@
+body,
+html {
+    background-color: #f7f7f7 !important;
+}
+
+.c1 {
+    background-color: #ffff !important;
+    margin-top: 20px !important;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px rgb(218, 216, 216);
+    cursor: pointer;
+}
+
+.c2 {
+    background-color: #ffff !important;
+    box-shadow: 10px 5px 5px rgb(218, 216, 216);
+    border-radius: 20px;
+    padding: 20px;
+    margin-right: 10px;
+    margin-left: -10px;
+}
+
+.c3 {
+    background-color: #ffff !important;
+    box-shadow: 10px 5px 5px rgb(218, 216, 216);
+    border-radius: 20px;
+    padding: 30px !important;
+    height: 565px;
+    margin: 20px 0 0 10px !important;
+}
+
+.table button {
+    padding: 4px 15px;
+    border-radius: 20px;
+    border: solid 1px #922c88;
+    color: #922c88;
+    transition: 0.5s ease;
+}
+.table button:hover {
+    background-color: #922c88;
+    color: #ffff !important;
+    transition: 0.5s ease;
+}
+
+.parag {
+    margin-top: 15px;
+}
+
+.outer-div {
+    overflow: auto !important;
+    height: 95%;
+}
+
+.inner-div {
+    overflow: auto !important;
+    height: 95%;
+}
+
+.dashboard-menu ul {
+    margin-left: 20px;
+}
+
+.dashboard-menu .middle::after,
+.middle::before {
+    content: "";
+    border: solid 1px;
+    margin: 0 10px;
+}
+
+.dashboard-menu ul li {
+    padding: 0 5px 0 10px;
+    cursor: pointer;
+}
+
+.mySearch input {
+    padding: 5px 15px;
+    border: solid 1px #922c88;
+    border-radius: 20px;
+    color: #000 !important;
+    background-color: transparent;
+}
+
+.mySearch button {
+    padding: 5px 15px;
+    border: solid 1px #922c88;
+    border-radius: 20px;
+    transition: 0.5s ease;
+}
+
+.mySearch button:hover {
+    background-color: #922c88;
+    color: #ffff !important;
+    transition: 0.5s ease;
+}
+
+/*  */
+@media screen and (max-width: 768px) {
+    /* hide table headings */
+    .table-responsive table th {
+        display: none;
+    }
+    /* treat rows like divs */
+    .table-responsive table tr {
+        display: block;
+        border-bottom: 2px solid lightgray;
+        /* separate row data with thicker line */
+        margin-top: 5px;
+    }
+    /* treat columns like divs */
+    .table-responsive table td {
+        display: block;
+        text-align: right;
+        /* text to right */
+    }
+    /* this part is ugly, but necessary to show label on left */
+    .table-responsive table td:before {
+        content: attr(data-label);
+        float: left;
+        /* label to left */
+        font-weight: 700;
+    }
+
+    .c1 p {
+        margin: 0 !important;
+    }
+
+    .c1 {
+        margin: 0 5px 10px 5px !important;
+        padding-top: 15px !important;
+        padding-bottom: 5px !important;
+    }
+
+    .c3 {
+        margin: 0 0 0 5px !important;
+        height: 420px !important;
+    }
+
+    .dashboard-menu ul {
+        margin-left: -10px !important;
+    }
+
+    .footer {
+        text-align: center !important;
+    }
+}

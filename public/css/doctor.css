@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    /* font-family: "Roboto", sans-serif; */
+}
+
+body {
+    height: 100vh;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet; */
+}
+
+.container-register {
+    padding: 110px 0;
+    position: relative;
+    /* max-width: 500px; */
+    width: 100%;
+    background: white;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+}
+
+.container-register .forms {
+    display: flex;
+    align-items: center;
+    /* height: 990px; */
+    width: 200%;
+    /* background-color: red; */
+    transition: height 0.2s ease;
+}
+
+.container-register .form {
+    width: 50%;
+    padding: 30px;
+    background-color: white;
+    transition: margin-left 0.18s ease;
+}
+
+.container-register.active .login {
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+
+.container-register .signup {
+    opacity: 0;
+    transition: opacity 0.09s ease;
+}
+
+.container-register.active .signup {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.container-register.active .forms {
+    height: 599px;
+}
+
+.container-register .form .title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.form .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    /* background-color: #922c88; */
+    border-radius: 25px;
+}
+
+.form .input-field {
+    position: relative;
+    height: 50px;
+    /* width: 100%; */
+    margin-top: 30px;
+}
+
+.input-field input,
+select {
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    /* padding: 0 35px; */
+    border: none;
+    outline: none;
+    font-size: 16px !important;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid),
+.input-field select:is(:focus, :valid) {
+    border-bottom-color: #922c88;
+}
+
+.input-field i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) ~ i {
+    color: #922c88;
+}
+
+.input-field i.icon {
+    left: 0;
+}
+
+.input-field i.showHidePw {
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.form .checkbox-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input {
+    margin: 0 8px -2px 4px;
+    accent-color: #922c88;
+}
+
+.form .text {
+    color: black;
+    font-size: 14px;
+}
+
+.form a {
+    color: #922c88;
+    text-decoration: none;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
+
+.form .button input {
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: #922c88;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form .login-signup {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.custom-file-button input[type="file"] {
+    margin-left: -2px !important;
+}
+
+.custom-file-button input[type="file"]::-webkit-file-upload-button {
+    display: none;
+}
+
+.custom-file-button input[type="file"]::file-selector-button {
+    display: none;
+}
+
+.custom-file-button:hover label {
+    background-color: #dde0e3;
+    cursor: pointer;
+}
+
+.nav-link.active {
+    font-weight: bolder !important;
+    text-decoration: underline !important;
+    text-decoration-color: #d640d6 !important;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 3px !important;
+}
+
+.specialty {
+    border: 1px solid #922c88;
+}
+
+.specialty button:hover,
+.specialty button:focus {
+    border: 1px solid white;
+}
+
+.signup-doctor button,
+.signup-doctor button:hover {
+    /* border-bottom: 1px solid #922c88;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0; */
+    color: #922c88;
+    border: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.signup-doctor button:hover {
+    font-weight: bold;
+    transition: 0.3s ease-in;
+}
+
+.signup-doctor button i {
+    z-index: -1;
+}
