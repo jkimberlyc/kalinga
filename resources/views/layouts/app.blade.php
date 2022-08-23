@@ -20,7 +20,7 @@
     @yield('more-css')
 
     <!-- Scripts -->
-    @vite(['resources/js/app.js'])
+    {{-- @vite(['resources/js/app.js']) --}}
 </head>
 
 <body style="background-color: rgb(245, 244, 244)">
