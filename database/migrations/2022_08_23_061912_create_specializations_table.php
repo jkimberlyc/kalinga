@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('timeslots', function (Blueprint $table) {
+        Schema::create('specializations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('affiliation_id');
-            $table->string('day')->nullable();
-            $table->time('startTime')->nullable();
-            $table->time('endTime')->nullable();
-            $table->boolean('isOpen')->default(true);
+            $table->string('specialization');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timeslots');
+        Schema::dropIfExists('specializations');
     }
 };

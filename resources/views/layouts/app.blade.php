@@ -44,7 +44,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto align-middle">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/').'#home'}}">Home</a>
+                            <a class="nav-link" href="{{url('/').'#home'}}">Search</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/').'#about'}}">About</a>
@@ -73,17 +73,16 @@
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link text-white right"
-                                href="/appointments/{{Auth::user()->id}}">Appointments</a>
+                            <a class="nav-link text-white right" href="/appointments">Appointments</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-white right"><i class='bx bx-bell fs-4'></i></a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white right" href="#"
                                 role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 v-pre>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->email }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -106,9 +105,9 @@
 
         @yield('content')
         <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-        </script>
+        </script> --}}
     </div>
 </body>
 

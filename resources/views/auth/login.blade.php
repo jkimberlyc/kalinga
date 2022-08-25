@@ -10,33 +10,40 @@
     <div class="container-login d-flex flex-column px-5" id="login">
         <div class="forms">
             <div class="form login">
+                @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+                @endif
                 <span class="title mt-3">Login</span>
 
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="input-field">
-                        <input type="email" class="@error('email') is-invalid @enderror" placeholder="Enter your email"
-                            required autocomplete="email" autofocus>
+                        {{-- <input type="email" class="@error('email') is-invalid @enderror"
+                            placeholder="Enter your email" --}} <input type="email" class="" name="email"
+                            placeholder="Enter your email" required autofocus>
 
-                        @error('email')
+                        {{-- @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror
+                        @enderror --}}
                     </div>
 
 
                     <div class="input-field">
-                        <input type="password" class="password  @error('password') is-invalid @enderror"
-                            placeholder="Enter your password" required autocomplete="current-password">
+                        {{-- <input type="password" class="password  @error('password') is-invalid @enderror" --}}
+                            <input type="password" name="password" class="password" placeholder="Enter your password"
+                            required>
 
                         <i class="uil uil-eye-slash showHidePw"></i>
 
-                        @error('password')
+                        {{-- @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror
+                        @enderror --}}
                     </div>
 
                     <div class="checkbox-text">

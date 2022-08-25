@@ -11,10 +11,10 @@ addSpecialty.addEventListener('click', () => {
         div.classList.add("align-middle", "px-3", "py-2", "rounded-5", "d-inline-block", "m-1", "specialty")
         div.setAttribute("data-label", "others");
 
-        // var input = document.createElement("input");
-        // input.type = "hidden";
-        // input.name = "specialization[]";
-        // input.value = specialty.toUpperCase();
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "specialization[]";
+        input.value = specialty.toUpperCase();
 
         div.appendChild(input)
 
@@ -31,10 +31,10 @@ specialtySelect.addEventListener('change', () => {
         div.innerHTML = "<span class='align-middle'>" + specialty.toUpperCase() + "</span>" + "<button type='button' class='btn btn-sm p-0 ps-1' style='color:#922c88' onclick='deleteItem(this)'><i class='uil uil-multiply'></i></button>";
         div.classList.add("align-middle", "px-3", "py-2", "rounded-5", "d-inline-block", "m-1", "specialty")
 
-        // var input = document.createElement("input");
-        // input.type = "hidden";
-        // input.name = "specialization[]";
-        // input.value = specialty.toUpperCase();
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "specialization[]";
+        input.value = specialty.toUpperCase();
 
         div.appendChild(input)
 

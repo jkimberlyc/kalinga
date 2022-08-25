@@ -17,12 +17,15 @@
                             as
                             Patient</button></a>
                 </div>
+                @if(!empty($successMsg))
+                <div class="alert alert-success"> {{ $successMsg }}</div>
+                @endif
                 <div class="title"><code>Doctor Sign Up</code></div>
                 {{-- <span class="title">Basic Info</span> --}}
 
-                <form action="{{ route('register') }}" method="POST">
+                <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="row mb-md-3">
+                    <div class="row mb-md-2">
                         <div class="input-field col-md col-12 my-1">
                             <input type="text" placeholder="First Name" name="firstName" required>
                         </div>
@@ -38,6 +41,14 @@
 
                     <div class="row mb-md-3">
                         <div class="input-field col-md col-12 my-1">
+                            {{-- <label for="genderSelect"></label> --}}
+                            <select name="genderSelect" id="genderSelect" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="input-field col-md col-12 my-1">
                             <input type="tel" placeholder="Phone Number (optional)" name="phoneNumber">
                         </div>
 
@@ -52,12 +63,24 @@
                         </div>
 
                         <div class="input-field col-md-2 col-12 my-1">
-                            <input type="text" placeholder="City" name="city" required>
+                            <template id="cityList">
+                                @foreach ($cities as $city)
+                                <option>{{$city}}</option>
+                                @endforeach
+                            </template>
+                            <input type="text" placeholder="City" name="city" list="cities" id="cityInput" required>
+                            <datalist id="cities"></datalist>
                         </div>
 
                         <div class="input-field col-md-2 col-12 my-1">
-                            <input type="text" placeholder="Province" name="province" required>
-
+                            <template id="provinceList">
+                                @foreach ($provinces as $province)
+                                <option>{{$province}}</option>
+                                @endforeach
+                            </template>
+                            <input type="text" placeholder="Province" list="provinces" name="province"
+                                id="provinceInput" required>
+                            <datalist id="provinces"></datalist>
                         </div>
                     </div>
 
@@ -69,7 +92,7 @@
                             <label class="input-group-text rounded-0 p-3" for="inputGroupFile02">Doctor's
                                 License</label>
                             <input type="file" class="form-control border-0 border-bottom rounded-0 p-3"
-                                id="licenseInput" accept="application/pdf" required>
+                                id="licenseInput" accept="application/pdf" name="license" required>
                         </div>
                     </div>
 
@@ -114,13 +137,14 @@
                         </div>
 
                         <div class="input-field col-md col-12 my-1">
-                            <input type="password" placeholder="Confirm Password" name="confirmPassword" required>
+                            <input type="password" placeholder="Confirm Password" name="password_confirmation" required
+                                autocomplete="new-password">
                         </div>
                     </div>
 
 
                     <div class="input-field button">
-                        <input type="button" value="Signup">
+                        <input type="submit" value="Signup">
                     </div>
                     <div class="login-signup">
                         <span class="text">Already a member?
@@ -135,4 +159,5 @@
 @include('layouts.footer')
 <script src="{{asset('js/navbar_v2.js')}}"></script>
 <script src="{{asset('js/register-doc.js')}}"></script>
+<script src="{{asset('js/register.js')}}"></script>
 @endsection

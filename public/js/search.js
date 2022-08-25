@@ -27,3 +27,15 @@ search.addEventListener('keyup', function handler(event) {
     results.appendChild(set);
 });
 
+// var search2 = document.querySelector('#specializationInput');
+// var results2 = document.querySelector('#specializations');
+// var templateContent2 = document.querySelector('#specializationList').content;
+// search2.addEventListener('keyup', function handler(event) {
+//     while (results2.children.length) results2.removeChild(results2.firstChild);
+//     var inputVal = new RegExp(search2.value.trim(), 'i');
+//     var set = Array.prototype.reduce.call(templateContent2.cloneNode(true).children, function searchFilter(frag, item, i) {
+//         if (inputVal.test(item.textContent) && frag.children.length < 8) frag.appendChild(item);
+//         return frag;
+//     }, document.createDocumentFragment());
+//     results2.appendChild(set);
+// });

@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('timeslots', function (Blueprint $table) {
+        Schema::create('doc_specialties', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('affiliation_id');
-            $table->string('day')->nullable();
-            $table->time('startTime')->nullable();
-            $table->time('endTime')->nullable();
-            $table->boolean('isOpen')->default(true);
+            $table->unsignedBigInteger('doctor_id');
+            $table->unsignedBigInteger('specialty_id');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timeslots');
+        Schema::dropIfExists('doc_specialties');
     }
 };

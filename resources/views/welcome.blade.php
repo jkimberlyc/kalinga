@@ -4,6 +4,7 @@
 <link href="{{asset('css/search.css')}}" rel="stylesheet">
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/baybayin-daluyong" type="text/css" />
 <link href="{{asset('css/contact/style.css')}}" rel="stylesheet">
+<link href="{{asset('css/developers.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
@@ -24,35 +25,45 @@
         </div>
     </div>
     <div class="container-md">
-        <div class="p-3 pb-1 mx-md-0 mx-5 rounded-3" id="searchbar">
-            <div class="row g-2">
-                <div class="col-md-5">
-                    <div class="form-floating">
-                        <input type="text" class="form-control form-control-lg rounded-1 text-dark" id="specialization"
-                            placeholder="PEDIATRICS" required>
-                        <label class="align-middle" for="specialization">Specialization</label>
+        <div class="px-3 py-0 mx-md-0 mx-5 rounded-3" id="searchbar">
+            <form action="/search" method="post">
+                <div class="row g-3">
+                    @csrf
+                    <div class="col-md-5">
+                        <div class="form-floating">
+                            <select type="text" class="form-select rounded-1 text-dark" list="specializations"
+                                id="specializationInput" placeholder="EX. PEDIATRICS" name="specialization" required>
+                                <option value="">Select Specialization</option>
+                                @foreach($specializations as $specialization)
+                                <option value="{{$specialization->specialization}}">{{$specialization->specialization}}
+                                </option>
+                                @endforeach
+                            </select>
+                            <label class="align-middle" for="specialization">Specialization</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <template id="locationList">
+                            @foreach($locations as $location)
+                            <option>
+                                {{$location}}
+                            </option>
+                            @endforeach
+                        </template>
+                        <div class="form-floating">
+                            <input type="text" class="form-control rounded-1 text-dark" list="locations"
+                                id="locationInput" placeholder="CITY, PROVINCE" name="location" required>
+                            <label class="align-middle" for="locationInput">Location</label>
+                            <datalist id="locations"></datalist>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn w-100 fs-1 rounded-1" type="submit"
+                            style="height:58px;background-color:#b83cc4"><i class='bx bx-search-alt text-white'
+                                id="search-btn"></i></button>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <template id="locationList">
-                        @foreach($data as $place)
-                        <option>
-                            {{$place}}
-                        </option>
-                        @endforeach
-                    </template>
-                    <div class="form-floating">
-                        <input type="text" class="form-control form-control-lg rounded-1 text-dark" list="locations"
-                            id="locationInput" placeholder="CITY, PROVINCE" required>
-                        <label class="align-middle" for="locationInput">Location</label>
-                        <datalist id="locations"></datalist>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <button class="btn w-100 fs-1 rounded-1" style="height:58px;background-color:#b83cc4"><i
-                            class='bx bx-search-alt text-white' id="search-btn"></i></button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="container mt-5 pt-5" id="about">
@@ -83,9 +94,8 @@
                                 <div class="accordion-body">
                                     <strong>Booking a physician has never been easier.</strong> Kalinga lets you
                                     book an appointment with a physician of your
-                                    choosing. Designed to avoid schedule mixups and long approval queue, rest assured
-                                    your appointment request will go through and be reviewed promptly by
-                                    the physcian.
+                                    choice. Designed to avoid schedule mixups and long approval queue, rest assured
+                                    your appointment request will go through and be reviewed promptly for approval.
                                 </div>
                             </div>
                         </div>
@@ -100,7 +110,8 @@
                                 data-bs-parent="#aboutKalinga">
                                 <div class="accordion-body">
                                     <strong>Hassle-free transactions.</strong> Kalinga provides a way for patients to
-                                    pay for their doctor's visit and consultation fees without having to wait in a line.
+                                    pay their doctor's visit and consultation fees without having to wait in a line
+                                    with their on-site payment portal.
                                 </div>
                             </div>
                         </div>
@@ -125,7 +136,51 @@
                 </div>
             </div>
         </div>
-        <div>DEVELOPERS AREA HERE</div>
+        <div class="container mt-5 pt-5">
+            <div class=" display-6 fw-bold mt-5 pt-3">
+                About the Developers
+            </div>
+            <div class="row d-flex flex-column flex-md-row mt-5 text-center">
+                <div class="col card shadow-sm mx-2 my-2">
+                    <a href="" class="nav-link">
+                        <img src="{{asset('images/2.png')}}" class="myImg">
+                        <h5>Jeselle Carriedo</h5>
+                        <h6 class="fw-bold">Full-Stack Developer</h6>
+
+                    </a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eveniet dolorum doloribus,
+                        tempore et fuga unde id cumque accusamus quam ut molestias amet quibusdam est perspiciatis
+                        reprehenderit, excepturi fugiat, similique dolorem nisi quod! Sint accusamus voluptate
+                        necessitatibus nam numquam quia deleniti similique, vero amet aperiam expedita molestias quidem
+                        quas maiores.</p>
+                </div>
+                <div class="col card shadow-sm mx-2 my-2">
+                    <a href="" class="nav-link">
+                        <img src="{{asset('images/3.png')}}" class="myImg">
+                        <h5>Antonette Pelino</h5>
+                        <h6 class="fw-bold">Full-Stack Developer</h6>
+                    </a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eveniet dolorum doloribus,
+                        tempore et fuga unde id cumque accusamus quam ut molestias amet quibusdam est perspiciatis
+                        reprehenderit, excepturi fugiat, similique dolorem nisi quod! Sint accusamus voluptate
+                        necessitatibus nam numquam quia deleniti similique, vero amet aperiam expedita molestias quidem
+                        quas maiores.</p>
+                </div>
+                <div class="col card shadow-sm mx-2 my-2">
+                    <a href="" class="nav-link">
+                        <img src="{{asset('images/1.png')}}" class="myImg">
+                        <h5>Robin Paje</h5>
+                        <h6 class="fw-bold">Front-end Developer</h6>
+                    </a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eveniet dolorum doloribus,
+                        tempore et fuga unde id cumque accusamus quam ut molestias amet quibusdam est perspiciatis
+                        reprehenderit, excepturi fugiat, similique dolorem nisi quod! Sint accusamus voluptate
+                        necessitatibus nam numquam quia deleniti similique, vero amet aperiam expedita molestias quidem
+                        quas maiores.</p>
+
+                </div>
+            </div>
+        </div>
     </div>
     <section class="ftco-section mt-5" id="contact">
         <div class="container">

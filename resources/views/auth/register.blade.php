@@ -17,9 +17,12 @@
                             as
                             Doctor</button></a>
                 </div>
+                @if(!empty($successMsg))
+                <div class="alert alert-success"> {{ $successMsg }}</div>
+                @endif
                 <span class="title"><code>Patient Sign Up</code></span>
 
-                <form action="{{ route('register') }}" method="POST">
+                <form action="/addPatient" method="POST">
                     @csrf
                     <div class="row mb-md-3">
                         <div class="input-field col-md col-12 my-1">
@@ -71,12 +74,24 @@
                         </div>
 
                         <div class="input-field col-md-2 col-12 my-1">
-                            <input type="text" placeholder="City" name="city" required>
+                            <template id="cityList">
+                                @foreach ($cities as $city)
+                                <option>{{$city}}</option>
+                                @endforeach
+                            </template>
+                            <input type="text" placeholder="City" name="city" list="cities" id="cityInput" required>
+                            <datalist id="cities"></datalist>
                         </div>
 
                         <div class="input-field col-md-2 col-12 my-1">
-                            <input type="text" placeholder="Province" name="province" required>
-
+                            <template id="provinceList">
+                                @foreach ($provinces as $province)
+                                <option>{{$province}}</option>
+                                @endforeach
+                            </template>
+                            <input type="text" placeholder="Province" list="provinces" name="province"
+                                id="provinceInput" required>
+                            <datalist id="provinces"></datalist>
                         </div>
                     </div>
 
@@ -97,7 +112,7 @@
                         </div>
                     </div>
                     <div class="input-field button">
-                        <input type="button" value="Signup">
+                        <input type="submit" value="Signup">
                     </div>
                     <div class="login-signup">
                         <span class="text">Already a member?
@@ -111,4 +126,5 @@
 </main>
 @include('layouts.footer')
 <script src="{{asset('js/navbar_v2.js')}}"></script>
+<script src="{{asset('js/register.js')}}"></script>
 @endsection

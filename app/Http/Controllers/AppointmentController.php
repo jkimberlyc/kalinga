@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\Patient;
+use App\Models\Timeslot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -34,7 +38,19 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patient = Patient::select('*')->where('user_id', '=', $request['user_id'])->first();
+        $appointment = new Appointment();
+        $appointment->symptoms = $request['symptoms'];
+        $appointment->date = Carbon::parse($request['date'])->format('Y-m-d H:i:s');
+        // $appointment->date = $request['date'];
+        $appointment->time = $request['time'];
+        $appointment->patient_id = $patient->id;
+        $appointment->affiliation_id = $request['affiliation_id'];
+        $appointment->doc_specialty_id = $request['doc_specialty_id'];
+        // dd($appointment);
+        $appointment->save();
+
+        return redirect()->to('/appointments');
     }
 
     /**
@@ -45,7 +61,7 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        return view('patient.appointments');
+        //
     }
 
     /**
@@ -80,5 +96,12 @@ class AppointmentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function setTime($id)
+    {
+        $timeslots = Timeslot::select('startTime', 'endTime')->where('affilation_id', '=', $id)->get();
+        dd($timeslots);
+        return response()->json($timeslots);
     }
 }

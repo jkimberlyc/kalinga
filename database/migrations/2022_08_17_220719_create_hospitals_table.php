@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('hospitals', function (Blueprint $table) {
             $table->id();
             $table->string('hospitalName');
-            $table->string('address');
-            $table->string('city');
-            $table->string('province');
-            $table->string('phoneNumber')->nullable();
-            $table->string('mobileNumber');
+            $table->string('hospitalAddress');
+            $table->string('hospitalCity');
+            $table->string('hospitalProvince');
+            $table->string('hospitalPhoneNumber')->nullable();
+            $table->string('hospitalMobileNumber');
             $table->timestamps();
         });
     }

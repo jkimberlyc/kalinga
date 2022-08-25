@@ -22,4 +22,9 @@ class Patient extends Model
         'city',
         'province',
     ];
+
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'id');
+    }
 }

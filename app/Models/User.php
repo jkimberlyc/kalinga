@@ -21,6 +21,8 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
+        'role',
+        'isApproved'
     ];
 
     /**
@@ -41,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function patient()
+    {
+        return $this->belongsTo('App\Models\Patient', 'user_id');
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo('App\Models\Doctor', 'user_id');
+    }
 }

@@ -9,8 +9,15 @@ class Affiliation extends Model
 {
     use HasFactory;
 
+    protected $table = 'affiliations';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'doctor_id',
-        'hospital_id'
+        'hospital_id',
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo('App\Models\Doctor', 'id');
+    }
 }

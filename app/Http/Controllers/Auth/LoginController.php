@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -33,7 +35,7 @@ class LoginController extends Controller
     {
 
         // User role
-        $role = Auth::user()->role->name;
+        $role = Auth::user()->role;
 
         // Check user role
         switch ($role) {
@@ -44,13 +46,15 @@ class LoginController extends Controller
                 return '/doctor';
                 break;
             case 'Admin':
-                return '/projects';
+                return '/admin';
                 break;
             default:
                 return '/login';
                 break;
         }
     }
+
+    // protected $redirectTo = "/";
     /**
      * Create a new controller instance.
      *
@@ -89,4 +93,20 @@ class LoginController extends Controller
         }
         Auth::login($user);
     }
+
+    // public function authenticate(Request $request)
+    // {
+    //     $email = $request['email'];
+    //     $password = $request['password'];
+
+    //     if (Auth::attempt(['email' => $email, 'password' => $password, 'isApproved' => 1])) {
+    //         $request->session()->regenerate();
+
+    //         return redirect()->intended('/doctor');
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'The provided credentials do not match our records.',
+    //     ])->onlyInput('email');
+    // }
 }

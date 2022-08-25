@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('hospital_id')->nullable();
             $table->unsignedBigInteger('payment_id')->nullable();
             $table->unsignedBigInteger('medcert_id')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

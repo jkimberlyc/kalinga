@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('firstName');
             $table->string('middleName');
             $table->string('lastName');
+            $table->string('gender');
             $table->string('phoneNumber')->nullable();
             $table->string('mobileNumber');
             $table->string('address');
@@ -25,8 +26,6 @@ return new class extends Migration
             $table->string('province');
             $table->string('license');
             $table->unsignedBigInteger('user_id');
-            $table->json('specialization_id');
-            $table->boolean('isApproved');
             $table->timestamps();
         });
     }
